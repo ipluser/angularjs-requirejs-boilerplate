@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>{% block title %}mana{% endblock %}</title>
+
+  {% block javascripts %}
+  <script type="text/javascript" data-main="/main" src="/lib/require/require.js"></script>
+  {% endblock %}
+
+  {% block stylesheets %}
+  <link rel="stylesheet" href="/lib/bootstrap-3.2.0/bootstrap.min.css" />
+  <link rel="stylesheet" href="/style.css" />
+  {% endblock %}
+</head>
+<body>
+  {% block content %}{% endblock %}
+  <div class="footer-container color-bg-black color-gray">
+    <div class="copyright">
+      <ul class="list-unstyled text-center">
+        <li class="inline-block">©2015 点融网</li>
+        <li class="inline-block">上海点荣金融信息服务有限责任公司</li>
+        <li class="inline-block">沪ICP备14028311号</li>
+      </ul>
+    </div>
+    <div></div>
+  </div>
+</body>
+</html>

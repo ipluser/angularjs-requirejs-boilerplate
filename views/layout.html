@@ -2,28 +2,47 @@
 <html>
 <head lang="en">
   <meta charset="UTF-8">
-  <title>{% block title %}mana{% endblock %}</title>
+  <title>{% block title %}{{title}}{% endblock %}</title>
 
-  {% block javascripts %}
-  <script type="text/javascript" data-main="/main" src="/lib/require/require.js"></script>
-  {% endblock %}
-
-  {% block stylesheets %}
   <link rel="stylesheet" href="/lib/bootstrap-3.2.0/bootstrap.min.css" />
   <link rel="stylesheet" href="/style.css" />
-  {% endblock %}
+
+  {% if styles %}
+    {% for style in styles %}
+    <link rel="stylesheet" href="{{style}}" />
+    {% endfor %}
+  {% endif %}
+
+  {% if headerScripts %}
+    {% for script in headerScripts %}
+    <script type="text/javascript" src="{{script}}"></script>
+    {% endfor %}
+  {% endif %}
 </head>
 <body>
   {% block content %}{% endblock %}
   <div class="footer-container color-bg-black color-gray">
-    <div class="copyright">
-      <ul class="list-unstyled text-center">
-        <li class="inline-block">©2015 点融网</li>
-        <li class="inline-block">上海点荣金融信息服务有限责任公司</li>
-        <li class="inline-block">沪ICP备14028311号</li>
+    <div class="copyright text-center">
+      <ul class="list-unstyled inline-block">
+        <li>Copyright © 2015 Node-Basicer. All Rights Reserved.</li>
+        <li><a href="https://github.com/ipluser/node-basicer" target="_blank">Plus</a> 版权所有 沪ICP备xxxxxxxx号</li>
       </ul>
     </div>
     <div></div>
   </div>
+
+  <script type="text/javascript">
+    var GlobalConfig = {
+      requireScripts: []
+    };
+
+    {% if requireScripts %}
+      {% for script in requireScripts %}
+      GlobalConfig.requireScripts.push('{{ script }}');
+      {% endfor %}
+    {% endif %}
+  </script>
+  <script type="text/javascript" src="/lib/require/require.js"></script>
+  <script type="text/javascript" src="/main.js"></script>
 </body>
 </html>

@@ -1,24 +1,22 @@
 module.exports = [{
   path: '/',
-  view: 'login',
+  view: 'default/login',
   data: {
-    title: 'Mana首页',
-    javascripts: [
-      '/controller/login-controller.js'
+    title: 'node-basicer首页',
+    requireScripts: [
+      'controllers/default/login-controller'
     ],
-    stylesheets: [
+    styles: [
       '/login.css'
     ]
   }
 }, {
   path: '/welcome',
-  view: 'welcome',
+  view: 'default/welcome',
   data: {
-    title: 'Mana欢迎您',
-    javascripts: [
-      '/controller/welcome-controller.js'
-    ],
-    stylesheets: [
+    title: 'node-basicer欢迎您',
+    requireScripts: [
+      'controllers/default/welcome-controller'
     ]
   }
 }];

@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head lang="en">
-  <meta charset="UTF-8">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <meta http-equiv="Pragma" content="no-cache"/>
+
   <title>{% block title %}{{title}}{% endblock %}</title>
 
   <link rel="stylesheet" href="/lib/bootstrap-3.2.0/bootstrap.min.css" />
@@ -42,7 +44,7 @@
       {% endfor %}
     {% endif %}
   </script>
-  <script type="text/javascript" src="/lib/require/require.js"></script>
-  <script type="text/javascript" src="/main.js"></script>
+  <script src="/lib/require/require.js"></script>
+  <script src="/main.js"></script>
 </body>
 </html>

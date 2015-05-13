@@ -1,6 +1,6 @@
 define([
   'angularApp', 'services/default/login-service',
-  'directives/components/full-image-background'
+  'directives/components/full-screen-background'
 ], function (
   angularApp
 ) {
@@ -11,12 +11,10 @@ define([
       password: ''
     };
 
-    $('#backgroundImage').fullscreenBackground();
-
     $scope.login = function() {
       if ($scope.data.username == null || $scope.data.username.length == 0
           || $scope.data.password == null || $scope.data.password.length == 0) {
-        alert('ÇëÌîĞ´ÓÃ»§ÃûºÍÃÜÂë');
+        alert('è¯·è¾“å…¥ç”¨æˆ·åå’Œå¯†ç ');
         return ;
       }
 

@@ -29,8 +29,10 @@ swig.setDefaults({cache: !systemParams.isDevMode});
 
 app.use(favicon(__dirname + '/public/images/favicon.ico'));
 app.use(express.static(__dirname + '/public/images'));
+app.use(express.static(__dirname + '/public/compiled/javascripts'));
 app.use(express.static(__dirname + '/public/javascripts'));
-app.use(express.static(__dirname + '/public/stylesheets'));
+app.use(express.static(__dirname + '/public/compiled/styles'));
+app.use(express.static(__dirname + '/public/styles'));
 
 configRoutes(app);
 

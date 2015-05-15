@@ -61,7 +61,7 @@ define([
             }
 
             elemt.each(function () {
-              if ($scope.optionsArr.defaultCss == true) {
+              if ($scope.optionsArr.defaultCss === true) {
                 $(elemt).css({
                   height: "100%",
                   width: "100%",
@@ -73,7 +73,7 @@ define([
                 });
               }
 
-              if ($scope.optionsArr.fillOnResize == true) {
+              if ($scope.optionsArr.fillOnResize === true) {
                 $(window).resize(function () {
                   fillBg($scope.optionsArr.selector, elemt);
                 });
@@ -85,6 +85,6 @@ define([
         }
       }
     }
-  })
+  });
 
 });

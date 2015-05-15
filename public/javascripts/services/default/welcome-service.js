@@ -9,9 +9,9 @@ define([
 
     welcomeService.test = function() {
       alert('hello service');
-    }
+    };
 
     return welcomeService;
   });
 
-})
+});

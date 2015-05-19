@@ -26,11 +26,10 @@
   <div class="footer-container color-bg-black color-gray">
     <div class="copyright text-center">
       <ul class="list-unstyled inline-block">
-        <li>Copyright © 2015 Node-Basicer. All Rights Reserved.</li>
-        <li><a href="https://github.com/ipluser/node-basicer" target="_blank">Plus</a> 版权所有 沪ICP备xxxxxxxx号</li>
+        <li>Copyright © {{now() | date('Y')}} {{systemParams.corporation}}. All Rights Reserved.</li>
+        <li><a href="{{systemParams.github}}" target="_blank">{{systemParams.author}}</a> 版权所有 {{systemParams.ICPNumber}}</li>
       </ul>
     </div>
-    <div></div>
   </div>
 
   <script type="text/javascript">

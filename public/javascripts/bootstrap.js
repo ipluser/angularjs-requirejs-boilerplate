@@ -1,4 +1,4 @@
-GlobalConfig.requireScripts.unshift('angularApp');
+GlobalConfig.requireScripts.push('angularApp');
 
 requirejs(GlobalConfig.requireScripts, function () {
 

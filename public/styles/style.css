@@ -1,0 +1,23 @@
+body {
+  margin: 0px;
+  padding: 0px;
+  font-family: proxima-nova,"Hiragino Sans GB","Microsoft YaHei","Wenquanyi Micro Hei","WenQuanYi Micro Hei Mono","WenQuanYi Zen Hei","WenQuanYi Zen Hei","Apple LiGothic Medium",SimHei,"ST Heiti","WenQuanYi Zen Hei Sharp";
+}
+.color-bg-black {
+  background-color: #141c26;
+}
+.color-gray {
+  color: #ccc;
+}
+.inline-block {
+  display: inline-block;
+}
+.footer-container {
+  padding: 30px;
+}
+.copyright ul {
+  margin: 0px;
+}
+.copyright li {
+  margin-right: 10px;
+}

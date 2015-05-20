@@ -39,8 +39,9 @@ var configRoutes = function(app) {
   });
 
   app.use(function(err, req, res) {
-    logger.error(err.stack);
-    res.status(500).render('default/error', {title: 'error'});
+    res.status(500).render('default/error', {title: 'error'}, function() {
+      logger.error(err.stack);
+    });
   });
 };
 

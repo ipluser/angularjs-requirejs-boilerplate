@@ -1,23 +1,39 @@
+body {
+  background-color: #CCFFFF;
+}
+a:link {
+  color: #141c26;
+}
+a:visited {
+  color: #141c26;
+}
+a:hover {
+  color: #141c26;
+}
+a:active {;
+  color: #141c26;
+}
 .footer-container {
-  display: none;
+  color: #141c26;
+  background-color: transparent;
 }
-#contentDiv {
-  height: 100%;
-  position: relative;
-  z-index: 999;
-  max-width: 800px;
-  margin: 10% auto 0;
-  overflow: hidden;
+.slogan-container {
+  margin: 0px 30px;
 }
-#sloganDiv {
-  max-width: 380px;
-  margin: auto;
+.img-slogan {
+  width: 340px;
+  background-image: url(/login/slogan.png);
+  height: 240px;
+  display: block;
 }
-#loginDiv {
+.content-container {
+  margin-top: 10%;
+}
+.login-container {
   width: 416px;
-  margin: auto;
+  margin: 10px;
   background: #fff;
-  padding: 40px 70px 25px 70px;
+  padding: 40px 70px 25px;
   border-radius: 5px;
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
@@ -28,19 +44,4 @@
   -moz-opacity: 0.9;
   opacity: 0.9;
   -khtml-opacity: 0.9;
-}
-#loginDiv .form-control {
-  height: 45px;
-  font-size: 16px;
-}
-#loginDiv button {
-  height: 45px;
-  font-size: 16px;
-  padding: 0px 20px;
-}
-#footerDiv a {
-  color: #333;
-}
-#copyrightDiv ul {
-  margin-top: 80px;
 }

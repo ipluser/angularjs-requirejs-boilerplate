@@ -1,24 +1,18 @@
 define([
-  'angularApp', 'react'
+  'angularApp', 'react',
+  'jsx!jsxdir/Timer'
 ], function (
-  angularApp, React
+  angularApp, React,
+  Timer
 ) {
 
   angularApp.controller('welcomeCtrl', ['$scope', function($scope) {
-    $scope.test = 'sss';
+    var start = new Date();
+    Timer = React.createFactory(Timer);
 
-    var CommentBox = React.createClass({displayName: 'CommentBox',
-      render: function() {
-        return (
-          React.createElement('div', {className: "commentBox"},
-            "Hello, world! I am a CommentBox."
-          )
-        );
-      }
-    });
     React.render(
-      React.createElement(CommentBox, null),
-      document.getElementById('testReact')
+        Timer({start: start}),
+        document.getElementById('testJSX')
     );
   }]);
 

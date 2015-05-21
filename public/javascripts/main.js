@@ -3,8 +3,11 @@ requirejs.config({
   paths: {
     'jquery': 'lib/jquery-2.1.3/jquery.min',
     'angular': 'lib/angular-1.3.15/angular.min',
+    'react': 'lib/react-0.13.3/react.min',
     'JSXTransformer': 'lib/react-0.13.3/JSXTransformer',
-    'react': 'lib/react-0.13.3/react-with-addons.min'
+    'jsx': 'lib/react-0.13.3/jsx',
+    'text': 'lib/react-0.13.3/text',
+    'backstretch': 'lib/backstretch/jquery.backstretch.min'
   },
   shim: {
     'angular': {
@@ -14,11 +17,7 @@ requirejs.config({
     'react': {
       exports: 'React'
     },
-    jsx: {
-      fileExtension: '.js',
-      harmony: true,
-      stripTypes: true
-    }
+    'backstretch': ['jquery']
   },
   waitSeconds: 0
 });

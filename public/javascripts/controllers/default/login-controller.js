@@ -1,11 +1,14 @@
 define([
   'angularApp', 'services/default/login-service',
-  'directives/components/full-screen-background'
+  'backstretch'
 ], function (
   angularApp
 ) {
 
+  $.backstretch("login/bg.jpg");
+
   angularApp.controller('loginCtrl', ['$scope', 'loginService', function($scope, loginService) {
+
     $scope.data = {
       username: '',
       password: ''
@@ -20,7 +23,6 @@ define([
 
       loginService.login($scope.data);
     }
-
   }]);
 
 });

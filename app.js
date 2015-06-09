@@ -13,7 +13,7 @@ app.set('views', __dirname + '/views');
 
 app.set('view cache', !systemParams.isDevMode);
 swig.setDefaults({
-  cache: !systemParams.isDevMode,
+//  cache: systemParams.isDevMode,
   locals: {
     now: function () {
       return new Date();
@@ -31,4 +31,5 @@ app.use(express.static(__dirname + '/public/styles'));
 
 configRoutes(app);
 
+console.log('start server on port[' + systemParams.port + ']');
 app.listen(systemParams.port);

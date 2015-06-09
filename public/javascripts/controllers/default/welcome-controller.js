@@ -1,5 +1,5 @@
 define([
-  'angularApp', 'react',
+  'angularApp', 'React',
   'jsx!jsxdir/Timer'
 ], function (
   angularApp, React,

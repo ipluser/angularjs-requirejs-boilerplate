@@ -5,7 +5,7 @@
   <meta name="keywords" content="node.js,nodejs,node.js basicer, nodejs-basicer,chrome v8,data-intensive,real-time,event-driven,non-blocking io,javascripts,js" />
   <meta name="description" content="nodejs-basicer is just a basic node.js framework" />
 
-  <title>{% block title %}nodejs-basicer{% endblock %}</title>
+  <title>nodejs-basicer {% block title %}{{title}}{% endblock %}</title>
 
   <link rel="stylesheet" href="/lib/bootstrap-3.2.0/bootstrap.min.css" />
   <link rel="stylesheet" href="/style.css" />
@@ -18,20 +18,12 @@
 
   {% if headerScripts %}
     {% for script in headerScripts %}
-    <script type="text/javascript" src="{{script}}"></script>
+      <script type="text/javascript" src="{{script}}"></script>
     {% endfor %}
   {% endif %}
 </head>
 <body>
-  {% block content %}{% endblock %}
-  <div class="footer-container color-bg-black color-gray">
-    <div class="copyright text-center">
-      <ul class="list-unstyled inline-block">
-        <li>Copyright © {{now() | date('Y')}} <a href="{{systemParams.github}}" target="_blank">{{systemParams.corporation}}</a>. All Rights Reserved.</li>
-        <li>{{systemParams.author}} 版权所有 {{systemParams.ICPNumber}}</li>
-      </ul>
-    </div>
-  </div>
+  {% block body %}{% endblock %}
 
   <script type="text/javascript">
     var GlobalConfig = {
@@ -40,12 +32,18 @@
 
     {% if requireScripts %}
       {% for script in requireScripts %}
-      GlobalConfig.requireScripts.push('{{ script }}');
+        GlobalConfig.requireScripts.push('{{ script }}');
       {% endfor %}
     {% endif %}
   </script>
-  <script src="/lib/require/require.js"></script>
-  <script src="/main.js"></script>
-  <script src="/bootstrap.js"></script>
+  <script src="/libs/require/require.js"></script>
+
+  {% if !systemParams.isDevMode %}
+    <script src="/apps.min.js"></script>
+  {% else %}
+    <script src="/main.js"></script>
+    <script src="/bootstrap.js"></script>
+  {% endif %}
+
 </body>
 </html>

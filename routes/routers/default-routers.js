@@ -2,7 +2,7 @@ module.exports = [{
   path: '/',
   view: 'default/login',
   data: {
-    title: 'nodejs-basicer 首页',
+    title: 'login',
     requireScripts: [
       'controllers/default/login-controller'
     ],
@@ -14,7 +14,7 @@ module.exports = [{
   path: '/welcome',
   view: 'default/welcome',
   data: {
-    title: 'nodejs-basicer 欢迎您',
+    title: 'welcome',
     requireScripts: [
       'controllers/default/welcome-controller'
     ]

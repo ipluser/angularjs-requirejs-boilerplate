@@ -1,3 +1,3 @@
-define('angularApp', ['angular'], function(angular) {
+define(['angular'], function(angular) {
   return angular.module('angularApp', []);
 });

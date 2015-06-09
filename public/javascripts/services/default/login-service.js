@@ -8,8 +8,7 @@ define([
     var loginService = {};
 
     loginService.login = function (data) {
-      alert('login success: ' + JSON.stringify(data));
-      window.location = '/welcome';
+      window.location.href = '/welcome';
     };
 
     return loginService;

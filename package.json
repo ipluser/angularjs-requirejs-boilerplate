@@ -10,6 +10,7 @@
     "gulp-minify-css": "~1.1.1",
     "gulp-requirejs2": "~0.1.4",
     "gulp-uglify": "~1.2.0",
-    "gulp-clean": "~0.3.1"
+    "gulp-clean": "~0.3.1",
+    "morgan": "~1.5.3"
   }
 }

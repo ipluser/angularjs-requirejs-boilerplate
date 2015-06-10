@@ -1,6 +1,7 @@
 var express = require('express'),
     swig = require('swig'),
     favicon = require('serve-favicon'),
+    morgan = require('morgan'),
     configRoutes = require('./routes/config-routes'),
     systemParams = require('./config/system-params.json');
 
@@ -28,6 +29,7 @@ app.use(express.static(__dirname + '/public/compiled/javascripts'));
 app.use(express.static(__dirname + '/public/javascripts'));
 app.use(express.static(__dirname + '/public/compiled/styles'));
 app.use(express.static(__dirname + '/public/styles'));
+app.use(morgan('dev'));
 
 configRoutes(app);
 

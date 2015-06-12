@@ -1,33 +1,36 @@
 var gulp = require('gulp'),
-    uglify = require('gulp-uglify'),
     minifyCss = require('gulp-minify-css'),
-    clean = require('gulp-clean'),
-    jshint = require('gulp-jshint');
+    rjsOptimizer = require('gulp-requirejs2'),
+    uglify = require('gulp-uglify'),
+    clean = require('gulp-clean');
 
-gulp.task('compressScripts', function() {
-  return gulp.src('public/javascripts/**/*.js')
-      .pipe(uglify())
-      .pipe(gulp.dest('public/compiled/javascripts'));
-});
+var baseScriptsPath = 'public/javascripts/',
+    compiledPath = 'public/compiled/';
 
-gulp.task('compressStyles', function() {
+gulp.task('buildStyles', function() {
   return gulp.src('public/styles/**/*.css')
       .pipe(minifyCss())
-      .pipe(gulp.dest('public/compiled/styles'));
+      .pipe(gulp.dest(compiledPath + 'styles'));
+});
+
+gulp.task('buildScripts', function() {
+  rjsOptimizer({
+    baseUrl: baseScriptsPath,
+    mainConfigFile: baseScriptsPath + 'main.js',
+    removeCombined: true,
+    stubModules: ['jsx', 'text', 'JSXTransformer'],
+    name: 'build-main',
+    out: 'apps.min.js'
+  }).pipe(uglify())
+      .pipe(gulp.dest(compiledPath + 'javascripts'));
 });
 
 gulp.task('clean', function() {
-  return gulp.src('public/compiled/*', {
+  return gulp.src(compiledPath + '*', {
     read: false
   }).pipe(clean());
 });
 
-gulp.task('jshint', function() {
-  return gulp.src('public/javascripts/**/*.js')
-      .pipe(jshint())
-      .pipe(jshint.reporter('default'));
-});
-
-gulp.task('default', ['clean', 'jshint'], function() {
-  gulp.start(['compressScripts', 'compressStyles']);
+gulp.task('default', ['clean'], function() {
+  gulp.start(['buildStyles', 'buildScripts']);
 });

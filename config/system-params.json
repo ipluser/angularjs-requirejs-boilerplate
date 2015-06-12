@@ -1,6 +1,6 @@
 {
   "port": 4250,
-  "isDevMode": true,
+  "isDevMode": false,
   "corporation": "Nodejs-Basicer",
   "author": "Plus",
   "ICPNumber": "沪ICP备xxxxxxxx号",

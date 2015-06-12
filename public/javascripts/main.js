@@ -1,5 +1,5 @@
 requirejs.config({
-  baseUrl: './',
+  baseUrl: '/',
   paths: {
     'jquery': 'libs/jquery-2.1.3/jquery.min',
     'angular': 'libs/angular-1.3.15/angular.min',

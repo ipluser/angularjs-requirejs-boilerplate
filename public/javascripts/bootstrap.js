@@ -1,4 +1,7 @@
-GlobalConfig.requireScripts.unshift('angular');
+GlobalConfig.requireScripts.unshift(
+  'angular',
+  'angularApp'
+);
 
 requirejs(GlobalConfig.requireScripts, function (angular) {
 

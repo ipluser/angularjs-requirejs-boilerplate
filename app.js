@@ -14,7 +14,7 @@ app.set('views', __dirname + '/views');
 
 app.set('view cache', !systemParams.isDevMode);
 swig.setDefaults({
-//  cache: systemParams.isDevMode,
+  cache: systemParams.isDevMode ? false : 'memory',
   locals: {
     now: function () {
       return new Date();
@@ -24,11 +24,11 @@ swig.setDefaults({
 });
 
 app.use(favicon(__dirname + '/public/images/favicon.ico'));
-app.use(express.static(__dirname + '/public/images'));
 app.use(express.static(__dirname + '/public/compiled/javascripts'));
 app.use(express.static(__dirname + '/public/javascripts'));
 app.use(express.static(__dirname + '/public/compiled/styles'));
 app.use(express.static(__dirname + '/public/styles'));
+app.use(express.static(__dirname + '/public/images'));
 app.use(morgan('dev'));
 
 configRoutes(app);

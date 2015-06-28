@@ -1,5 +1,5 @@
 define([
-  'angularApp', 'services/default/login-service',
+  'angular-app', 'services/default/login-service',
   'backstretch'
 ], function (
   angularApp

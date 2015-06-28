@@ -29,7 +29,10 @@ app.use(express.static(__dirname + '/public/javascripts'));
 app.use(express.static(__dirname + '/public/compiled/styles'));
 app.use(express.static(__dirname + '/public/styles'));
 app.use(express.static(__dirname + '/public/images'));
-app.use(morgan('dev'));
+
+if (systemParams.isDevMode) {
+  app.use(morgan('dev'));
+}
 
 configRoutes(app);
 

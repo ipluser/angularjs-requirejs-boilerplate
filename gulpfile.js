@@ -14,6 +14,10 @@ gulp.task('buildStyles', function() {
 });
 
 gulp.task('buildScripts', function() {
+  gulp.src(baseScriptsPath + "libs/**/*.js")
+      .pipe(uglify())
+      .pipe(gulp.dest(compiledPath + 'javascripts/libs'));
+
   rjsOptimizer({
     baseUrl: baseScriptsPath,
     mainConfigFile: baseScriptsPath + 'main.js',

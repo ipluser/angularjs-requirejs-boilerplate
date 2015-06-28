@@ -1,5 +1,5 @@
 define([
-  'angularApp'
+  'angular-app'
 ], function(
   angularApp
 ) {

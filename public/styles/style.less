@@ -1,0 +1,70 @@
+@import "style-compatibles";
+
+@font-size-normal: 16px;
+@color-black: #141c26;
+@color-gray: #ccc;
+@color-white: #fff;
+
+body {
+  margin: 0px;
+  padding: 0px;
+  font-family: proxima-nova,"Hiragino Sans GB","Microsoft YaHei","Wenquanyi Micro Hei","WenQuanYi Micro Hei Mono","WenQuanYi Zen Hei","WenQuanYi Zen Hei","Apple LiGothic Medium",SimHei,"ST Heiti","WenQuanYi Zen Hei Sharp";
+}
+.font-size-normal {
+  font-size: @font-size-normal;
+}
+.color-black {
+  color: @color-black;
+}
+.color-gray {
+  color: @color-gray;
+}
+.text-decoration-none {
+  text-decoration: none;
+}
+.text-decoration-underline {
+  text-decoration: underline;
+}
+a {
+  .color-black;
+  .text-decoration-none;
+  &:link, &:visited {
+    .text-decoration-none;
+  }
+  &:hover, &:active {
+    .text-decoration-underline;
+  }
+}
+.btn {
+  font-size: @font-size-normal;
+  padding: 10px 30px;
+}
+.form-control {
+  font-size: @font-size-normal;
+  height: 45px;
+}
+.color-bg-black {
+  background-color: @color-black;
+}
+.inline-block {
+  display: inline-block;
+}
+.block {
+  display: block;
+}
+.footer-container {
+  padding: 30px;
+  .copyright {
+    ul {
+      margin: 0px;
+      li {
+        margin-right: 10px;
+      }
+    }
+  }
+  a {
+    .color-gray;
+  }
+}
+
+

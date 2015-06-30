@@ -7,6 +7,7 @@
     "bunyan": "~1.3.5",
     "serve-favicon": "~2.2.0",
     "gulp": "~3.8.11",
+    "gulp-less": "~3.0.3",
     "gulp-minify-css": "~1.1.1",
     "gulp-requirejs2": "~0.1.4",
     "gulp-uglify": "~1.2.0",

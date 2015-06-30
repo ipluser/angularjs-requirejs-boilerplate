@@ -7,7 +7,7 @@ module.exports = [{
       'controllers/default/login-controller'
     ],
     styles: [
-      'default/login.css'
+      'default/login'
     ]
   }
 }, {

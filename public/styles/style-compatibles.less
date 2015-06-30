@@ -1,0 +1,17 @@
+.border-radius(@radius: 5px) {
+  border-radius: @radius;
+  -webkit-border-radius: @radius;
+  -moz-border-radius: @radius;
+}
+.box-shadow(@shadow) {
+  box-shadow: @shadow;
+  -webkit-box-shadow: @shadow;
+  -moz-box-shadow: @shadow;
+}
+.opacity(@ratio) {
+  @scale: @ratio * 10;
+  opacity: @ratio;
+  -khtml-opacity: @ratio;
+  -moz-opacity: @ratio;
+  filter: alpha(opacity=@scale);
+}

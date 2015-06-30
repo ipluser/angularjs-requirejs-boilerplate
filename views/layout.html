@@ -7,13 +7,18 @@
 
   <title>nodejs-basicer {% block title %}{{title}}{% endblock %}</title>
 
-  <link rel="stylesheet" href="/lib/bootstrap-3.2.0/bootstrap.min.css" />
-  <link rel="stylesheet" href="/style.css" />
+  <link rel="stylesheet" href="/libs/bootstrap-3.2.0/bootstrap.min.css" />
+  <link rel="stylesheet{% if systemParams.isDevMode %}/less{% endif %}" href="/style{% if systemParams.isDevMode %}.less{% else %}.css{% endif %}" />
 
   {% if styles %}
     {% for style in styles %}
-      <link rel="stylesheet" href="{{style}}" />
+      <link rel="stylesheet{% if systemParams.isDevMode %}/less{% endif %}" type="text/css"
+          href="{{style}}{% if systemParams.isDevMode %}.less#!watch{% else %}.css{% endif %}" />
     {% endfor %}
+  {% endif %}
+
+  {% if systemParams.isDevMode %}
+    <script type="text/javascript" src="/libs/less/less.min.js"></script>
   {% endif %}
 
   {% if headerScripts %}
@@ -38,11 +43,11 @@
   </script>
   <script src="/libs/require/require.js"></script>
 
-  {% if !systemParams.isDevMode %}
-    <script src="/apps.min.js"></script>
-  {% else %}
+  {% if systemParams.isDevMode %}
     <script src="/main.js"></script>
     <script src="/bootstrap.js"></script>
+  {% else %}
+    <script src="/apps.min.js"></script>
   {% endif %}
 
 </body>

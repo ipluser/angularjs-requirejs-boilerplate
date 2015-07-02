@@ -11,7 +11,7 @@ var baseScriptsPath = 'public/javascripts/',
 
 gulp.task('buildStyles', function() {
   return gulp.src([
-    baseStylesPath + '**/*',
+    baseStylesPath + '**/*.less',
     '!' + baseStylesPath + 'libs/**/*'
   ]).pipe(less())
       .pipe(minifyCss())

@@ -10,19 +10,12 @@ var baseScriptsPath = 'public/javascripts/',
     compiledPath = 'public/compiled/';
 
 gulp.task('buildStyles', function() {
-  return gulp.src([
-    baseStylesPath + '**/*',
-    '!' + baseStylesPath + 'libs/**/*'
-  ]).pipe(less())
+  return gulp.src(baseStylesPath + '**/*.less').pipe(less())
       .pipe(minifyCss())
       .pipe(gulp.dest(compiledPath + 'styles'));
 });
 
 gulp.task('buildScripts', function() {
-  gulp.src(baseScriptsPath + "libs/**/*.js")
-      .pipe(uglify())
-      .pipe(gulp.dest(compiledPath + 'javascripts/libs'));
-
   rjsOptimizer({
     baseUrl: baseScriptsPath,
     mainConfigFile: baseScriptsPath + 'main.js',

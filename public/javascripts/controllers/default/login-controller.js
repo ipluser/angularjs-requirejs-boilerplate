@@ -1,6 +1,6 @@
 define([
   'angular-app', 'services/default/login-service',
-  'backstretch'
+  'jquery-backstretch'
 ], function (
   angularApp
 ) {

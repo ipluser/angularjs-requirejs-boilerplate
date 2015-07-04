@@ -7,7 +7,7 @@
 
   <title>nodejs-basicer {% block title %}{{title}}{% endblock %}</title>
 
-  <link rel="stylesheet" href="/libs/bootstrap-3.2.0/bootstrap.min.css" />
+  <link rel="stylesheet" href="/libs/bootstrap/dist/css/bootstrap.min.css" />
   <link rel="stylesheet{% if systemParams.isDevMode %}/less{% endif %}" href="/style{% if systemParams.isDevMode %}.less{% else %}.css{% endif %}" />
 
   {% if styles %}
@@ -18,7 +18,7 @@
   {% endif %}
 
   {% if systemParams.isDevMode %}
-    <script type="text/javascript" src="/libs/less/less.min.js"></script>
+    <script type="text/javascript" src="/libs/less/dist/less.min.js"></script>
   {% endif %}
 
   {% if headerScripts %}
@@ -41,7 +41,7 @@
       {% endfor %}
     {% endif %}
   </script>
-  <script src="/libs/require/require.js"></script>
+  <script src="/libs/requirejs/require.js"></script>
 
   {% if systemParams.isDevMode %}
     <script src="/main.js"></script>

@@ -1,0 +1,29 @@
+{
+  "name": "nodejs-basicer",
+  "version": "0.0.1",
+  "description": "nodejs basicer bower",
+  "homepage": "https://github.com/ipluser/nodejs-basicer",
+  "keywords": [
+    "nodejs-basicer",
+    "nodejs"
+  ],
+  "main": [
+    "public/libs/bootstrap/dist/js/bootstrap.min.js",
+    "public/libs/bootstrap/dist/css/bootstrap.min.css"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.4",
+    "less": "~2.5.1",
+    "requirejs": "~2.1.18",
+    "requirejs-text": "~2.0.14",
+    "jsx-requirejs-plugin": "~0.6.2",
+    "react": "~0.13.3",
+    "angular": "~1.4.1",
+    "bootstrap": "~3.3.5",
+    "jquery-backstretch": "~2.0.4"
+  },
+  "authors": [
+    "Plus <ipluser@163.com>"
+  ],
+  "license": "MIT"
+}

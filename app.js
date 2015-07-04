@@ -24,14 +24,16 @@ swig.setDefaults({
 });
 
 app.use(favicon(__dirname + '/public/images/favicon.ico'));
-app.use(express.static(__dirname + '/public/compiled/javascripts'));
-app.use(express.static(__dirname + '/public/javascripts'));
-app.use(express.static(__dirname + '/public/compiled/styles'));
-app.use(express.static(__dirname + '/public/styles'));
+app.use(express.static(__dirname + '/public'));
 app.use(express.static(__dirname + '/public/images'));
 
 if (systemParams.isDevMode) {
   app.use(morgan('dev'));
+  app.use(express.static(__dirname + '/public/javascripts'));
+  app.use(express.static(__dirname + '/public/styles'));
+} else {
+  app.use(express.static(__dirname + '/public/compiled/styles'));
+  app.use(express.static(__dirname + '/public/compiled/javascripts'));
 }
 
 configRoutes(app);

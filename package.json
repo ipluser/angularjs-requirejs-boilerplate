@@ -1,6 +1,29 @@
 {
   "name": "nodejs-basicer",
+  "description": "Completely, basic angularjs frontend web framework for node.",
   "version": "0.7.14",
+  "author": {
+    "name": "Plus",
+    "email": "ipluser@163.com"
+  },
+  "contributors": [
+    {
+      "name": "Plus",
+      "email": "ipluser@163.com"
+    }
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ipluser/nodejs-basicer"
+  },
+  "keywords": [
+    "node",
+    "nodejs",
+    "express",
+    "angular",
+    "angularjs"
+  ],
   "dependencies": {
     "bunyan": "~1.3.5",
     "express": "~4.12.2",

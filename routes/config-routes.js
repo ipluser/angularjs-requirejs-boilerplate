@@ -1,19 +1,6 @@
 var express = require('express'),
     routes = require('./routes'),
-    bunyan = require('bunyan');
-
-var logger = bunyan.createLogger({
-  name: 'mana',
-  streams: [{
-    stream: process.stdout
-  }, {
-    level: 'error',
-    path: '/dev/log/mana-error.log',
-    type: 'rotating-file',
-    period: '1d',
-    count: 7
-  }]
-});
+    logger = require('../config/utils/logger');
 
 function newRouter(routers) {
   var router = express.Router();

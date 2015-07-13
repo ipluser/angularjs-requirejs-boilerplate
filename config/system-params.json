@@ -4,5 +4,6 @@
   "corporation": "Nodejs-Basicer",
   "author": "Plus",
   "ICPNumber": "沪ICP备xxxxxxxx号",
-  "github": "https://github.com/ipluser/nodejs-basicer"
+  "github": "https://github.com/ipluser/nodejs-basicer",
+  "logPath": "/dev/log/"
 }

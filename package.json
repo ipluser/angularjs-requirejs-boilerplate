@@ -1,7 +1,7 @@
 {
   "name": "nodejs-basicer",
   "description": "Completely, basic angularjs frontend web framework for node.",
-  "version": "0.7.14",
+  "version": "0.8.02",
   "author": {
     "name": "Plus",
     "email": "ipluser@163.com"

@@ -6,12 +6,13 @@ var gulp = require('gulp'),
     uglify = require('gulp-uglify'),
     clean = require('gulp-clean');
 
-var baseScriptsPath = 'public/javascripts/',
-    baseStylesPath = 'public/styles/',
+var baseStylesPath = 'public/styles/',
+    baseScriptsPath = 'public/javascripts/',
     compiledPath = 'public/compiled/';
 
 gulp.task('buildStyles', function() {
-  return gulp.src(baseStylesPath + '**/*.less').pipe(less())
+  return gulp.src(baseStylesPath + '**/*.less')
+      .pipe(less().on('error', gulpUtil.log))
       .pipe(minifyCss().on('error', gulpUtil.log))
       .pipe(gulp.dest(compiledPath + 'styles'));
 });

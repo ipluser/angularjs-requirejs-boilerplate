@@ -5,9 +5,9 @@
   <meta name="keywords" content="node.js,nodejs,node.js basicer, nodejs-basicer,chrome v8,data-intensive,real-time,event-driven,non-blocking io,javascripts,js" />
   <meta name="description" content="nodejs-basicer is just a basic node.js framework" />
 
-  <title>nodejs-basicer {% block title %}{{title}}{% endblock %}</title>
+  <title>nodejs-basicer/{% block title %}{{title}}{% endblock %}</title>
 
-  <link rel="stylesheet" href="/libs/bootstrap/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/bootstrap/dist/css/bootstrap.min.css" />
   <link rel="stylesheet{% if systemParams.isDevMode %}/less{% endif %}" href="/style{% if systemParams.isDevMode %}.less{% else %}.css{% endif %}" />
 
   {% if styles %}
@@ -18,7 +18,7 @@
   {% endif %}
 
   {% if systemParams.isDevMode %}
-    <script type="text/javascript" src="/libs/less/dist/less.min.js"></script>
+    <script type="text/javascript" src="/less/dist/less.min.js"></script>
   {% endif %}
 
   {% if headerScripts %}
@@ -41,7 +41,7 @@
       {% endfor %}
     {% endif %}
   </script>
-  <script src="/libs/requirejs/require.js"></script>
+  <script src="/requirejs/require.js"></script>
 
   {% if systemParams.isDevMode %}
     <script src="/main.js"></script>

@@ -3,6 +3,7 @@
   "isDevMode": false,
   "corporation": "Nodejs-Basicer",
   "author": "Plus",
+  "email": "ipluser@163.com",
   "ICPNumber": "沪ICP备xxxxxxxx号",
   "github": "https://github.com/ipluser/nodejs-basicer",
   "logPath": "/dev/log/"

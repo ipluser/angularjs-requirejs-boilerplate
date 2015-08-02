@@ -16,20 +16,34 @@ function newRouter(routers) {
   return router;
 }
 
+function handleHttpStatus(app) {
+  app.use(function(req, res) {
+    res.status(404).render('default/status', {
+      title: 'not found',
+      styles: [
+        '/default/status'
+      ]
+    });
+  });
+
+  app.use(function(err, req, res) {
+    res.render('default/status', {
+      title: 'something wrong',
+      styles: [
+        '/default/status'
+      ]
+    }, function() {
+      logger.error(err.stack);
+    });
+  });
+}
+
 var configRoutes = function(app) {
   for (var i in routes) {
     app.use(routes[i].domain, newRouter(routes[i].routers));
   }
 
-  app.use(function(req, res) {
-    res.status(404).render('default/not-found', {title: 'resource not found'});
-  });
-
-  app.use(function(err, req, res) {
-    res.status(500).render('default/error', {title: 'error'}, function() {
-      logger.error(err.stack);
-    });
-  });
+  handleHttpStatus(app);
 };
 
 module.exports = configRoutes;

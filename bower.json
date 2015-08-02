@@ -1,7 +1,7 @@
 {
   "name": "nodejs-basicer",
-  "version": "0.7.14",
-  "description": "nodejs basicer ui",
+  "version": "0.8.02",
+  "description": "nodejs-basicer frontend dependencies",
   "homepage": "https://github.com/ipluser/nodejs-basicer",
   "keywords": [
     "nodejs-basicer",

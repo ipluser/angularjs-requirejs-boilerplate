@@ -9,6 +9,7 @@ var locals = {
 
 var configSwig = function(swig) {
   swig.setDefaults({
+    cache: systemParams.isDevMode ? !systemParams.isDevMode : "memory",
     locals: locals
   });
 };

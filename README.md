@@ -1,43 +1,50 @@
-## Nodejs Basicer
-  Completely, basic angularjs frontend web framework for [node](http://nodejs.org).
+## angularjs-requirejs-boilerplate
+An complete angularjs requirejs boilerplate for node. There are angular and test samples in the project,
+you can quick start your new project with angularjs-requirejs-boilerplate.
 
-## Referenced Packges
-### Frontend
-  * [jquery](https://jquery.org/), the Write Less, Do More, JavaScript Library
-  * [requirejs](http://requirejs.org/), a JavaScript file and module loader
+## Features
+### Front-end
   * [angularjs](http://angularjs.org/), a JavaScript MVW Framework
-  * [lesscss](http://lesscss.org/), a CSS pre-processor
-  * [bootstrap](http://getbootstrap.com/), the most popular HTML, CSS, and JS framework for developing responsive, mobile first projects on the web.
-  * [react](http://facebook.github.io/react/), a JavaScript library for building user interfaces
+  * [bootstrap](http://getbootstrap.com/), the most popular HTML, CSS, and JS framework for developing responsive, mobile first projects on the web
+  * [jquery](https://jquery.org/), the Write Less, Do More, JavaScript Library
+  * [less](http://lesscss.org/), a CSS pre-processor
+  * [requirejs](http://requirejs.org/), a JavaScript file and module loader
   * etc
 
-### Backend
-  * [expressjs](http://expressjs.com/), sinatra inspired web development framework for node.js.
-  * [swig](http://paularmstrong.github.io/swig/), a simple, powerful, and extendable JavaScript Template Engine
+### Back-end
+  * [expressjs](http://expressjs.com/), sinatra inspired web development framework for node.js
   * [gulp](http://gulpjs.com/), the streaming build system
+  * [swig](http://paularmstrong.github.io/swig/), a simple, powerful, and extendable JavaScript Template Engine
   * etc
 
 ## Quick Start
-  Install dependencies:
-
+### Install Dependencies:
 ```bash
-$ npm install
 $ bower install
+$ npm install
 ```
 
-  Compile and build system:
+### Development
+Development Environment using gulp-nodemon, gulp-livereload and gulp-jshint.
+ 1. Make sure <strong>isDevMode</strong> configuration is <strong>true</strong> in <strong>locals.js</strong>
+ 2. Install [livereload chrome extension](http://livereload.com/extensions/)
+ 3. Start the server with `gulp start-develop`
 
-```bash
-$ gulp
-```
+### Production
+ 1. Make sure <strong>isDevMode</strong> configuration is <strong>false</strong> in <strong>locals.js</strong>
+ 2. Compile and build with `gulp`
+ 3. Start the server with pm2 or others
 
-  Start the server:
+### Configuration
+System configuration are stored in the <strong>locals.js</strong> file.
 
-```bash
-$ node app
-```
+## Test
+Test using karma and jasmine, run the test with `npm test` or `karma start`. Unit and coverage test report are stored in report directory.
 
-  Open the browser and input http://localhost:4250/
+## Changelog
+### 1.0.0
+- initial release<br>
+18.10.2015
 
 ## License
 

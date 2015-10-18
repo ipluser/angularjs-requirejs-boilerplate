@@ -1,54 +1,72 @@
 <!DOCTYPE html>
-<html>
-<head lang="en">
+<html dir="ltr">
+<head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-  <meta name="keywords" content="node.js,nodejs,node.js basicer, nodejs-basicer,chrome v8,data-intensive,real-time,event-driven,non-blocking io,javascripts,js" />
-  <meta name="description" content="nodejs-basicer is just a basic node.js framework" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="renderer" content="webkit"/>
+  <meta name="description" content="An complete angularjs requirejs boilerplate for node."/>
+  <meta name="keywords" content="angular,angularjs,requirejs,boilerplate,angularjs-requirejs,angularjs-requirejs-boilerplate">
+  <title>ipluser - {= title || 'angularjs-requirejs-boilerplate' =}</title>
 
-  <title>nodejs-basicer/{% block title %}{{title}}{% endblock %}</title>
+  {% if isDevMode %}
+  <link href="/static/libs/bootstrap/less/bootstrap.less" rel="stylesheet/less">
+  {% else %}
+  <link href="/static/libs/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+  {% endif %}
 
-  <link rel="stylesheet" href="/bootstrap/dist/css/bootstrap.min.css" />
-  <link rel="stylesheet{% if systemParams.isDevMode %}/less{% endif %}" href="/style{% if systemParams.isDevMode %}.less{% else %}.css{% endif %}" />
+  <link rel="stylesheet{% if isDevMode %}/less{% endif %}" type="text/css"
+      href="/static/styles/style{% if isDevMode %}.less{% else %}{= '.css' | buildNumber =}{% endif %}"/>
 
   {% if styles %}
-    {% for style in styles %}
-      <link rel="stylesheet{% if systemParams.isDevMode %}/less{% endif %}" type="text/css"
-          href="{{style}}{% if systemParams.isDevMode %}.less#!watch{% else %}.css{% endif %}" />
-    {% endfor %}
+  {% for style in styles %}
+  <link rel="stylesheet{% if isDevMode %}/less{% endif %}" type="text/css"
+      href="/static/styles/{= style =}{% if isDevMode %}.less#!watch{% else %}{= '.css' | buildNumber =}{% endif %}" />
+  {% endfor %}
   {% endif %}
 
-  {% if systemParams.isDevMode %}
-    <script type="text/javascript" src="/less/dist/less.min.js"></script>
-  {% endif %}
-
-  {% if headerScripts %}
-    {% for script in headerScripts %}
-      <script type="text/javascript" src="{{script}}"></script>
-    {% endfor %}
+  {% if isDevMode %}
+  <script type="text/javascript" src="/static/libs/less/dist/less.min.js"></script>
   {% endif %}
 </head>
 <body>
-  {% block body-container %}{% endblock %}
+  <div class="container-fluid">
+    {% if !hideHeader %}
+    {% include "./components/layout/header.html" %}
+    {% endif %}
+
+    {% block content %}{% endblock content %}
+
+    {% if !hideFooter %}
+    {% include "./components/layout/footer.html" %}
+    {% endif %}
+  </div>
 
   <script type="text/javascript">
     var GlobalConfig = {
-      requireScripts: []
+      requireScripts: [],
+      isDevMode: {= isDevMode =}
     };
 
-    {% if requireScripts %}
-      {% for script in requireScripts %}
-        GlobalConfig.requireScripts.push('{{ script }}');
+    if (!GlobalConfig.isDevMode) {
+      window.console.log = function () {
+        return;
+      };
+    }
+
+    {% if scripts %}
+      {% for script in scripts %}
+        GlobalConfig.requireScripts.push('{= script =}');
       {% endfor %}
     {% endif %}
   </script>
-  <script src="/requirejs/require.js"></script>
+  <script src="/static/libs/requirejs/require.min.js"></script>
 
-  {% if systemParams.isDevMode %}
-    <script src="/main.js"></script>
-    <script src="/bootstrap.js"></script>
+  {% if isDevMode %}
+  <script src="/static/scripts/require-config.js"></script>
+  <script src="/static/scripts/bootstrap.js"></script>
   {% else %}
-    <script src="/apps.min.js"></script>
+  <script src="{= '/static/scripts/lib.min.js' | buildNumber =}"></script>
+  <script src="{= '/static/scripts/app.min.js' | buildNumber =}"></script>
   {% endif %}
-
 </body>
 </html>

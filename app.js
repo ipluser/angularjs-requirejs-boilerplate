@@ -1,36 +1,32 @@
 var express = require('express'),
     swig = require('swig'),
-    favicon = require('serve-favicon'),
-    morgan = require('morgan'),
-    configRoutes = require('./routes/config-routes'),
-    configSwig = require('./config/config-swig'),
-    systemParams = require('./config/system-params.json');
+    locals = require('./node-app/config/locals'),
+    swigConfig = require('./node-app/swig/swig-config'),
+    middlewareConfig = require('./middleware/middleware-config');
 
-var app = express();
-
-app.engine('html', swig.renderFile);
+var app = express(),
+    port = locals.port;
 
 app.set('view engine', 'html');
 app.set('views', __dirname + '/views');
+app.engine('html', swig.renderFile);
 
-app.set('view cache', !systemParams.isDevMode);
-configSwig(swig);
+swigConfig(swig);
+middlewareConfig(app);
 
-app.use(favicon(__dirname + '/public/images/favicon.ico'));
-app.use(express.static(__dirname + '/public/libs'));
-app.use(express.static(__dirname + '/public/images'));
+if (locals.SSL.enableSSL) {
+  var fs = require('fs');
 
-if (systemParams.isDevMode) {
-  app.use(morgan('dev'));
-  app.use(express.static(__dirname + '/public'));
-  app.use(express.static(__dirname + '/public/javascripts'));
-  app.use(express.static(__dirname + '/public/styles'));
+  var options = {
+    key: fs.readFileSync(locals.SSL.key),
+    cert: fs.readFileSync(locals.SSL.cert)
+  };
+
+  require('https').createServer(options, app).listen(port, function () {
+    console.log('server listening on port(SSL enabled) ' + port);
+  });
 } else {
-  app.use(express.static(__dirname + '/public/compiled/styles'));
-  app.use(express.static(__dirname + '/public/compiled/javascripts'));
+  require('http').createServer(app).listen(port, function () {
+    console.log('server listening on port ' + port);
+  });
 }
-
-configRoutes(app);
-
-console.log('start server on port[' + systemParams.port + ']');
-app.listen(systemParams.port);

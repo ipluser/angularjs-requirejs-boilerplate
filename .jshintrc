@@ -1,0 +1,22 @@
+{
+  "predef": [
+    "define",
+    "require",
+    "GlobalConfig",
+    "angular",
+    "inject"
+  ],
+  "bitwise": true,
+  "curly": true,
+  "eqeqeq": true,
+  "forin": true,
+  "maxerr": 1000,
+  "undef": true,
+  "unused": true,
+  "eqnull": true,
+  "loopfunc": true,
+  "browser": true,
+  "jasmine": true,
+  "jquery": true,
+  "node": true
+}

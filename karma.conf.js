@@ -16,7 +16,22 @@ module.exports = function (config) {
       'public/scripts/require-config.js',
       'public/scripts/bootstrap.js'
     ],
-    browsers: ['Chrome'],
+    browsers: ['PhantomJS_Custom'],
+    customLaunchers: {
+      'PhantomJS_Custom': {
+        base: 'PhantomJS',
+        options: {
+          windowName: 'karma-phantom',
+          settings: {
+            webSecurityEnabled: false
+          },
+        },
+        debug: true
+      }
+    },
+    phantomjsLauncher: {
+      exitOnResourceError: true
+    },
     reporters: ['progress', 'html', 'coverage'],
     htmlReporter: {
       outputFile: 'report/units.html',
@@ -33,7 +48,6 @@ module.exports = function (config) {
     },
     ngHtml2JsPreprocessor: {
       stripPrefix: 'views/',
-      stripSuffix: '.html',
       moduleName: 'angularApp'
     }
   });

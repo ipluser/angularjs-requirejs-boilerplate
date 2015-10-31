@@ -11,7 +11,7 @@ var locals = require('../node-app/config/locals'),
 
 var middlewareConfig = function (app) {
   if (locals.isDevMode) {
-    app.use(morgan('combined'));
+    app.use(morgan('dev'));
   }
 
   app.use(detectMobile);
@@ -45,25 +45,21 @@ function detectMobile(req, res, next) {
 
 function staticMiddleware(app, options) {
   app.use('/static', express.static(process.cwd() + '/public', options));
-  app.use('/templates', function (req, res, next) {
-    res.render(req.originalUrl.substr(1), function (err, html) {
-      if (err) {
-        next();
-      } else {
-        res.send(html);
-      }
-    });
-  });
 
   if (!locals.isDevMode) {
     app.use('/static/styles', express.static(process.cwd() + '/public/compiled/styles', options));
     app.use('/static/scripts', express.static(process.cwd() + '/public/compiled/scripts', options));
+  } else {
+    app.use('/templates', function (req, res, next) {
+      res.render(req.originalUrl.substr(1), function (err, html) {
+        if (err) {
+          next();
+        } else {
+          res.send(html);
+        }
+      });
+    });
   }
 }
 
 module.exports = middlewareConfig;
-
-
-
-
-

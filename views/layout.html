@@ -31,13 +31,13 @@
 <body>
   <div class="container-fluid">
     {% if !hideHeader %}
-    {% include "./components/layout/header.html" %}
+    {% include "./layout/header.html" %}
     {% endif %}
 
     {% block content %}{% endblock content %}
 
     {% if !hideFooter %}
-    {% include "./components/layout/footer.html" %}
+    {% include "./layout/footer.html" %}
     {% endif %}
   </div>
 
@@ -53,20 +53,23 @@
       };
     }
 
+    {% if !isDevMode %}
+      GlobalConfig.requireScripts.push('templates.min');
+    {% endif %}
     {% if scripts %}
       {% for script in scripts %}
         GlobalConfig.requireScripts.push('{= script =}');
       {% endfor %}
     {% endif %}
   </script>
-  <script src="/static/libs/requirejs/require.min.js"></script>
+  <script src="/static/libs/requirejs/require.js"></script>
 
   {% if isDevMode %}
   <script src="/static/scripts/require-config.js"></script>
   <script src="/static/scripts/bootstrap.js"></script>
   {% else %}
-  <script src="{= '/static/scripts/lib.min.js' | buildNumber =}"></script>
-  <script src="{= '/static/scripts/app.min.js' | buildNumber =}"></script>
+  <script src="{= '/static/scripts/libs.min.js' | buildNumber =}"></script>
+  <script src="{= '/static/scripts/apps.min.js' | buildNumber =}"></script>
   {% endif %}
 </body>
 </html>

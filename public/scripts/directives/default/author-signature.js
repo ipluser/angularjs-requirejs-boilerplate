@@ -8,7 +8,7 @@ define('directives/default/author-signature', [
         author: '@'
       },
       replace: true,
-      templateUrl: 'templates/default/author-signature'
+      templateUrl: 'templates/default/author-signature.html'
     };
   });
 });

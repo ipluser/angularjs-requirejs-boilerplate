@@ -46,6 +46,13 @@ Test using karma and jasmine, run the test with `npm test` or `karma start`. Uni
 - initial release<br>
 18.10.2015
 
+### 1.1.0
+- add gulp task named build-views that registers AngularJS templates in the $templateCache
+- add karma and size into gulpfile
+- replace chrome launcher with phantomjs launcher in karma
+- modify layout launcher and suffix of templateUrl<br>
+31.10.2015
+
 ## License
 
   [MIT](LICENSE)

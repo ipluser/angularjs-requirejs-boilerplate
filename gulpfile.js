@@ -10,7 +10,10 @@ var gulp = require('gulp'),
     jshint = require('gulp-jshint'),
     stylish = require('jshint-stylish'),
     livereload = require('gulp-livereload'),
-    nodemon = require('gulp-nodemon');
+    nodemon = require('gulp-nodemon'),
+    templateCache = require('gulp-angular-templatecache'),
+    size = require('gulp-size'),
+    karmaServer = require('karma').Server;
 
 var locals = require('./node-app/config/locals');
 
@@ -24,14 +27,14 @@ var paths = {
     compiled: 'public/compiled/scripts'
   },
   libs: 'public/libs',
-  images:  'public/images',
+  images: 'public/images',
   views: 'views',
   nodeApp: 'node-app',
   middleware: 'middleware',
   test: 'test'
 }, resources = {
   jshint: [
-    paths.scripts.origin +  '/**/*.js',
+    paths.scripts.origin + '/**/*.js',
     paths.nodeApp + '/**/*.js',
     paths.middleware + '/**/*.js',
     paths.test + '/**/*.js'
@@ -53,7 +56,8 @@ gulp.task('start-develop', function () {
     ext: 'js',
     watch: [
       paths.middleware,
-      paths.nodeApp
+      paths.nodeApp,
+      'app.js'
     ]
   }).on('restart', function (files) {
     gutil.log('server restarted due to: ', files);
@@ -71,6 +75,10 @@ gulp.task('start-develop', function () {
   });
 
   gulp.watch(resources.jshint, ['jshint']);
+
+  new karmaServer({
+    configFile: __dirname + '/karma.conf.js'
+  }).start();
 });
 
 gulp.task('images-reload', function () {
@@ -80,8 +88,17 @@ gulp.task('images-reload', function () {
 
 gulp.task('build-styles', function () {
   return gulp.src(paths.styles.origin + '/**/*.less')
+      .pipe(size({
+        title: 'less'
+      }))
       .pipe(less().on('error', gutil.log))
+      .pipe(size({
+        title: 'less2css'
+      }))
       .pipe(minifycss().on('error', gutil.log))
+      .pipe(size({
+        title: 'minifycss'
+      }))
       .pipe(gulp.dest(paths.styles.compiled));
 });
 
@@ -90,7 +107,7 @@ gulp.task('build-libs', function () {
     baseUrl: paths.scripts.origin,
     name: 'build-main',
     mainConfigFile: paths.scripts.origin + '/require-config.js',
-    out: paths.scripts.compiled + '/lib.min.js',
+    out: paths.scripts.compiled + '/libs.min.js',
     optimize: 'uglify2',
     removeCombined: true
   }, function (data) {
@@ -106,8 +123,35 @@ gulp.task('build-scripts', function () {
   return gulp.src([
     paths.scripts.origin + '/**/*.js',
     '!' + paths.scripts.origin + '/build-main.js'
-  ]).pipe(concat('app.min.js').on('error', gutil.log))
+  ]).pipe(concat('apps.min.js').on('error', gutil.log))
+      .pipe(size({
+        title: 'apps.js'
+      }))
       .pipe(uglify().on('error', gutil.log))
+      .pipe(size({
+        title: 'apps.min.js'
+      }))
+      .pipe(gulp.dest(paths.scripts.compiled));
+});
+
+gulp.task('build-views', function () {
+  return gulp.src(paths.views + '/templates/**/*.html')
+      .pipe(size({
+        title: 'templates html'
+      }))
+      .pipe(templateCache('templates.min.js', {
+        root: 'templates',
+        module: 'angularApp',
+        standalone: false,
+        moduleSystem: 'RequireJS'
+      }))
+      .pipe(size({
+        title: 'ng-html2js'
+      }))
+      .pipe(uglify().on('error', gutil.log))
+      .pipe(size({
+        title: 'templates.min.js'
+      }))
       .pipe(gulp.dest(paths.scripts.compiled));
 });
 
@@ -118,5 +162,5 @@ gulp.task('clean', function () {
 });
 
 gulp.task('default', ['clean'], function () {
-  gulp.start('build-styles', 'build-libs', 'build-scripts');
+  gulp.start('build-styles', 'build-libs', 'build-scripts', 'build-views');
 });

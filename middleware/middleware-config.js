@@ -39,6 +39,7 @@ var middlewareConfig = function (app) {
 function detectMobile(req, res, next) {
   if (detector.isMobile(req.get('User-Agent'))) {
     res.redirect("/h5");
+    return ;
   }
   next();
 }

@@ -9,7 +9,15 @@ var routerConfig = function (app) {
 };
 
 function newRouter(routersConfig) {
+  if (_.isFunction(routersConfig)) {
+    return routersConfig;
+  }
+
   var router = express.Router();
+
+  if (!_.isArray(routersConfig)) {
+    return router;
+  }
 
   _.forEach(routersConfig, function (config) {
     router.get(config.path, function (req, res) {

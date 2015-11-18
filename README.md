@@ -42,6 +42,11 @@ System configuration are stored in the <strong>locals.js</strong> file.
 Test using karma and jasmine, run the test with `npm test` or `karma start`. Unit and coverage test report are stored in report directory.
 
 ## Changelog
+### 1.1.1
+- fix mobile can not redirect
+- fix can not define custom router<br>
+18.11.2015
+
 ### 1.1.0
 - add gulp task named build-views that registers AngularJS templates in the $templateCache
 - add karma and size into gulpfile

@@ -1,0 +1,73 @@
+<h2 id="angularjs-requirejs-boilerplate">angularjs-requirejs-boilerplate</h2>
+<p>An complete angularjs requirejs boilerplate for node. There are angular and test samples in the project,
+you can quick start your new project with angularjs-requirejs-boilerplate.</p>
+<h2 id="features">Features</h2>
+<h3 id="front-end">Front-end</h3>
+<ul>
+<li><a href="http://angularjs.org/">angularjs</a>, a JavaScript MVW Framework</li>
+<li><a href="http://getbootstrap.com/">bootstrap</a>, the most popular HTML, CSS, and JS framework for developing responsive, mobile first projects on the web</li>
+<li><a href="https://jquery.org/">jquery</a>, the Write Less, Do More, JavaScript Library</li>
+<li><a href="http://lesscss.org/">less</a>, a CSS pre-processor</li>
+<li><a href="http://requirejs.org/">requirejs</a>, a JavaScript file and module loader</li>
+<li>etc</li>
+</ul>
+<h3 id="back-end">Back-end</h3>
+<ul>
+<li><a href="http://expressjs.com/">expressjs</a>, sinatra inspired web development framework for node.js</li>
+<li><a href="http://gulpjs.com/">gulp</a>, the streaming build system</li>
+<li><a href="http://paularmstrong.github.io/swig/">swig</a>, a simple, powerful, and extendable JavaScript Template Engine</li>
+<li>etc</li>
+</ul>
+<h2 id="quick-start">Quick Start</h2>
+<h3 id="install-dependencies-">Install Dependencies:</h3>
+<pre><code class="lang-bash">$ bower install
+$ npm install
+</code></pre>
+<h3 id="development">Development</h3>
+<p>Development Environment using gulp-nodemon, gulp-livereload and gulp-jshint.</p>
+<ol>
+<li>Make sure <strong>isDevMode</strong> configuration is <strong>true</strong> in <strong>locals.js</strong></li>
+<li>Install <a href="http://livereload.com/extensions/">livereload chrome extension</a></li>
+<li>Start the server with <code>gulp start-develop</code></li>
+</ol>
+<h3 id="production">Production</h3>
+<ol>
+<li>Make sure <strong>isDevMode</strong> configuration is <strong>false</strong> in <strong>locals.js</strong></li>
+<li>Compile and build with <code>gulp</code></li>
+<li>Start the server with node or pm2 or others</li>
+</ol>
+<h3 id="configuration">Configuration</h3>
+<p>System configuration are stored in the <strong>locals.js</strong> file.</p>
+<h3 id="samples-page">Samples Page</h3>
+<p>Start the server and input <code>http://localhost:8099/samples</code> with browsers.</p>
+<h2 id="test">Test</h2>
+<p>Test using karma and jasmine, run the test with <code>npm test</code> or <code>karma start</code>. Unit and coverage test report are stored in report directory.</p>
+<h2 id="changelog">Changelog</h2>
+<h3 id="2-0-0">2.0.0</h3>
+<ul>
+<li>adjust directory and code of project</li>
+<li>add angular samples page</li>
+<li>add README.md preview<br>
+01.01.2016</li>
+</ul>
+<h3 id="1-1-1">1.1.1</h3>
+<ul>
+<li>fix mobile can not redirect</li>
+<li>fix can not define custom router<br>
+18.11.2015</li>
+</ul>
+<h3 id="1-1-0">1.1.0</h3>
+<ul>
+<li>add gulp task named build-views that registers AngularJS templates in the $templateCache</li>
+<li>add karma and size into gulpfile</li>
+<li>replace chrome launcher with phantomjs launcher in karma</li>
+<li>modify layout launcher and suffix of templateUrl<br>
+31.10.2015</li>
+</ul>
+<h3 id="1-0-0">1.0.0</h3>
+<ul>
+<li>initial release<br>
+18.10.2015</li>
+</ul>
+<h2 id="license">License</h2>
+<p>  <a href="https://github.com/ipluser/angularjs-requirejs-boilerplate/blob/master/LICENSE">MIT</a></p>

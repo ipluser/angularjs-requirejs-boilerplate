@@ -33,15 +33,24 @@ Development Environment using gulp-nodemon, gulp-livereload and gulp-jshint.
 ### Production
  1. Make sure <strong>isDevMode</strong> configuration is <strong>false</strong> in <strong>locals.js</strong>
  2. Compile and build with `gulp`
- 3. Start the server with pm2 or others
+ 3. Start the server with node or pm2 or others
 
 ### Configuration
 System configuration are stored in the <strong>locals.js</strong> file.
+
+### Samples Page
+Start the server and input `http://localhost:8099/samples` with browsers.
 
 ## Test
 Test using karma and jasmine, run the test with `npm test` or `karma start`. Unit and coverage test report are stored in report directory.
 
 ## Changelog
+### 2.0.0
+- adjust directory and code of project
+- add angular samples page
+- add README.md preview<br>
+01.01.2016
+
 ### 1.1.1
 - fix mobile can not redirect
 - fix can not define custom router<br>
@@ -59,5 +68,4 @@ Test using karma and jasmine, run the test with `npm test` or `karma start`. Uni
 18.10.2015
 
 ## License
-
-  [MIT](LICENSE)
+  [MIT](https://github.com/ipluser/angularjs-requirejs-boilerplate/blob/master/LICENSE)

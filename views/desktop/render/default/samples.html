@@ -1,0 +1,31 @@
+{% extends "../layout.html" %}
+{% block content %}
+<div class="content-container">
+  <div class="sample-block">
+    <h1 class="sample-name">The Basics</h1>
+    <div class="sample-content">
+      <label>Name:</label>
+      <input type="text" ng-model="yourName" placeholder="Enter a name here">
+      <h3>Hello <span ng-bind="yourName"></span>!</h3>
+    </div>
+  </div>
+  <div class="sample-block">
+    <h1 class="sample-name">Create Filter</h1>
+    <div class="sample-content">
+      <label>Letters:</label>
+      <input type="text" ng-model="letters" placeholder="Enter some letters here">
+      <h3>To UpperCase: <span ng-bind="letters | MockUpperCase"></span></h3>
+    </div>
+  </div>
+  <div class="sample-block">
+    <h1 class="sample-name">Create Components</h1>
+    <div class="sample-content" ng-controller="SamplesCtrl" ng-cloak>
+      <mock-tabs>
+        <mock-pane ng-repeat="pane in panes" title="{{pane.title}}">
+          <p ng-bind="pane.content"></p>
+        </mock-pane>
+      </mock-tabs>
+    </div>
+  </div>
+</div>
+{% endblock %}

@@ -1,7 +1,9 @@
 var locals = {
+  name: 'angularjs-requirejs-boilerplate',
+  author: 'Plus',
   isDevMode: false,
   port: 8099,
-  poweredBy: 'pluser',
+  poweredBy: 'ipluser',
   SSL: {
     enableSSL: false,
     key: './node-app/config/ssl/key.pem',

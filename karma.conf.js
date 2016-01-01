@@ -7,14 +7,20 @@ module.exports = function (config) {
       {pattern: 'public/libs/angular/angular.js', included: false},
       {pattern: 'public/libs/angular-mocks/angular-mocks.js', included: false},
       {pattern: 'public/scripts/**/*.js', included: false},
-      {pattern: 'views/templates/**/*.html', included: false},
+      {pattern: 'views/desktop/templates/**/*.html', included: false},
+      {pattern: 'views/mobile/templates/**/*.html', included: false},
       {pattern: 'test/**/*-test.js', included: false},
-      'test/test-main.js'
+      'test/desktop/test-main.js'
     ],
     exclude: [
-      'public/scripts/build-main.js',
-      'public/scripts/require-config.js',
-      'public/scripts/bootstrap.js'
+      'public/scripts/desktop/bootstrap.js',
+      'public/scripts/desktop/optimize-main.js',
+      'public/scripts/desktop/optimize-require-config.js',
+      'public/scripts/desktop/require-config.js',
+      'public/scripts/mobile/bootstrap.js',
+      'public/scripts/mobile/optimize-main.js',
+      'public/scripts/mobile/optimize-require-config.js',
+      'public/scripts/mobile/require-config.js'
     ],
     browsers: ['PhantomJS_Custom'],
     customLaunchers: {
@@ -40,14 +46,15 @@ module.exports = function (config) {
     },
     preprocessors: {
       'public/scripts/**/*.js': ['coverage'],
-      'views/templates/**/*.html' : ['ng-html2js']
+      'views/desktop/templates/**/*.html' : ['ng-html2js'],
+      'views/mobile/templates/**/*.html' : ['ng-html2js']
     },
     coverageReporter: {
       type : 'html',
       dir : 'report/coverage/'
     },
     ngHtml2JsPreprocessor: {
-      stripPrefix: 'views/',
+      stripPrefix: 'views',
       moduleName: 'angularApp'
     }
   });

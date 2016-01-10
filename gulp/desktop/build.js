@@ -1,4 +1,4 @@
-var gulp = require('gulp');
+var gulp = require('gulp-help')(require('gulp'));
 
 require('./build-scripts.js');
 require('./build-styles.js');

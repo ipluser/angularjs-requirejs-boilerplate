@@ -51,15 +51,15 @@ function detectMobile(req, res, next) {
 
 function staticMiddleware(app, options) {
   if (!locals.isDevMode) {
-    app.use('/static/styles/desktop', express.static(process.cwd() + '/public/compiled/desktop/styles', options));
-    app.use('/static/styles/mobile', express.static(process.cwd() + '/public/compiled/mobile/styles', options));
     app.use('/static/scripts/desktop', express.static(process.cwd() + '/public/compiled/desktop/scripts', options));
     app.use('/static/scripts/mobile', express.static(process.cwd() + '/public/compiled/mobile/scripts', options));
-    app.use('/static/libs', express.static(process.cwd() + '/public/libs', options));
   } else {
     app.use('/static', express.static(process.cwd() + '/public', options));
   }
 
+  app.use('/static/styles/desktop', express.static(process.cwd() + '/public/compiled/desktop/styles', options));
+  app.use('/static/styles/mobile', express.static(process.cwd() + '/public/compiled/mobile/styles', options));
+  app.use('/static/libs', express.static(process.cwd() + '/public/libs', options));
   app.use('/static/images', express.static(process.cwd() + '/public/images', options));
   app.use('/*/templates', function (req, res, next) {
     res.render(req.originalUrl.substr(1), function (err, html) {

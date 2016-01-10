@@ -3,6 +3,7 @@ var locals = {
   author: 'Plus',
   isDevMode: false,
   port: 8099,
+  devPort: 3000,
   poweredBy: 'ipluser',
   SSL: {
     enableSSL: false,

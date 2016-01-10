@@ -1,7 +1,13 @@
-var gulp = require('gulp');
+var gulp = require('gulp-help')(require('gulp'));
+
+var envUtil = require('./common/env-util');
 
 require('./desktop/build.js');
 require('./mobile/build.js');
+
+if (!envUtil.isProduction()) {
+  require('./develop/build.js');
+}
 
 gulp.task('clean-scripts', function () {
   gulp.start('desktop-clean-scripts', 'mobile-clean-scripts');
@@ -39,6 +45,15 @@ gulp.task('build', function () {
   gulp.start('desktop-build', 'mobile-build');
 });
 
-gulp.task('default', function () {
-  gulp.start('desktop-build', 'mobile-build');
+gulp.task('default', 'compile and build by production mode and it show more information', function () {
+  if (envUtil.isDevelopment()) {
+    gulp.start('develop-watch');
+  } else {
+    gulp.start('desktop-build', 'mobile-build');
+  }
+}, {
+  options: {
+    'production': 'compile and build in production env',
+    'development': 'development mode for developer'
+  }
 });

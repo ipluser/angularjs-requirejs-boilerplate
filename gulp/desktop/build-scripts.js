@@ -1,13 +1,14 @@
-var gulp = require('gulp'),
+var gulp = require('gulp-help')(require('gulp')),
     gutil = require('gulp-util'),
     concat = require('gulp-concat'),
     uglify = require('gulp-uglify'),
     size = require('gulp-size'),
+    gulpif = require('gulp-if'),
     requirejs = require('requirejs'),
     vp = require('vinyl-paths'),
     del = require('del');
 
-var locals = require('../../node-app/config/locals');
+var envUtil = require('../common/env-util');
 
 var paths = {
   origin: 'public/scripts/desktop',
@@ -23,7 +24,7 @@ gulp.task('desktop-build-libs-no-clean', function () {
     optimize: 'uglify2',
     removeCombined: true
   }, function (files) {
-    if (locals.isDevMode) {
+    if (!envUtil.isProduction()) {
       gutil.log('modules of build libs in desktop', files);
     }
   }, function (err) {
@@ -37,13 +38,9 @@ gulp.task('desktop-build-custom-scripts-no-clean', function () {
     '!' + paths.origin + '/optimize-main.js',
     '!' + paths.origin + '/optimize-require-config.js'
   ]).pipe(concat('apps.min.js').on('error', gutil.log))
-      .pipe(size({
-        title: 'size of custom scripts in desktop'
-      }))
+      .pipe(gulpif(!envUtil.isProduction(), size({title: 'size of custom scripts in desktop'})))
       .pipe(uglify().on('error', gutil.log))
-      .pipe(size({
-        title: 'size of uglify custom scripts in desktop'
-      }))
+      .pipe(gulpif(!envUtil.isProduction(), size({title: 'size of uglify custom scripts in desktop'})))
       .pipe(gulp.dest(paths.compiled));
 });
 

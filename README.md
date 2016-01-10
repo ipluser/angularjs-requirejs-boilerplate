@@ -25,26 +25,36 @@ $ npm install
 ```
 
 ### Development
-Development Environment using gulp-nodemon, gulp-livereload and gulp-jshint.
+Development Environment using gulp-nodemon, [browser-sync](https://www.browsersync.io/) and gulp-jshint.
  1. Make sure <strong>isDevMode</strong> configuration is <strong>true</strong> in <strong>locals.js</strong>
- 2. Install [livereload chrome extension](http://livereload.com/extensions/)
- 3. Start the server with `gulp start-develop`
+ 2. Start development mode with `gulp --development`
+ 3. Input `http://localhost:devPort` with browsers
 
 ### Production
  1. Make sure <strong>isDevMode</strong> configuration is <strong>false</strong> in <strong>locals.js</strong>
- 2. Compile and build with `gulp`
+ 2. Compile and build with `gulp --production`
  3. Start the server with node or pm2 or others
+ 4. Input `http://localhost:port` with browsers
 
 ### Configuration
 System configuration are stored in the <strong>locals.js</strong> file.
 
 ### Samples Page
-Start the server and input `http://localhost:8099/samples` with browsers.
+Start the server and input `URL/samples` with browsers.
+
+## Gulp
+Show task list with `gulp help`.
 
 ## Test
 Test using karma and jasmine, run the test with `npm test` or `karma start`. Unit and coverage test report are stored in report directory.
 
 ## Changelog
+### 2.1.0
+- replace gulp-livereload with browser-sync
+- add gulp-help, gulp-size and others gulp components
+- remove less.js<br>
+10.01.2016
+
 ### 2.0.0
 - adjust directory and code of project
 - add angular samples page

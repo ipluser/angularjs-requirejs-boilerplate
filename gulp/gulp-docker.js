@@ -17,6 +17,10 @@ gulp.task('clean-styles', function () {
   gulp.start('desktop-clean-styles', 'mobile-clean-styles');
 });
 
+gulp.task('clean-templates', function () {
+  gulp.start('desktop-clean-templates', 'mobile-clean-templates');
+});
+
 gulp.task('clean', function () {
   gulp.start('desktop-clean', 'mobile-clean');
 });
@@ -35,6 +39,14 @@ gulp.task('build-styles-no-clean', function () {
 
 gulp.task('build-styles', function () {
   gulp.start('desktop-build-styles', 'mobile-build-styles');
+});
+
+gulp.task('build-templates-no-clean', function () {
+  gulp.start('desktop-build-templates-no-clean', 'mobile-build-templates-no-clean');
+});
+
+gulp.task('build-templates', function () {
+  gulp.start('desktop-templates-styles', 'mobile-templates-styles');
 });
 
 gulp.task('build-no-clean', function () {

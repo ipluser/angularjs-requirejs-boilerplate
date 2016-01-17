@@ -43,6 +43,9 @@
       };
     }
 
+    {% if !isDevMode %}
+      GlobalConfig.requireScripts.push('desktop/templates');
+      {% endif %}
     {% if scripts %}
       {% for script in scripts %}
         GlobalConfig.requireScripts.push('{= script =}');
@@ -56,6 +59,7 @@
   <script src="/static/scripts/desktop/bootstrap.js"></script>
   {% else %}
   <script src="{= '/static/scripts/desktop/libs.min.js' | buildNumber =}"></script>
+  <script src="{= '/static/scripts/desktop/templates.min.js' | buildNumber =}"></script>
   <script src="{= '/static/scripts/desktop/apps.min.js' | buildNumber =}"></script>
   {% endif %}
 </body>

@@ -55,21 +55,21 @@ function staticMiddleware(app, options) {
     app.use('/static/scripts/mobile', express.static(process.cwd() + '/public/compiled/mobile/scripts', options));
   } else {
     app.use('/static', express.static(process.cwd() + '/public', options));
+    app.use('/*/templates', function (req, res, next) {
+      res.render(req.originalUrl.substr(1), function (err, html) {
+        if (err) {
+          next();
+        } else {
+          res.send(html);
+        }
+      });
+    });
   }
 
   app.use('/static/styles/desktop', express.static(process.cwd() + '/public/compiled/desktop/styles', options));
   app.use('/static/styles/mobile', express.static(process.cwd() + '/public/compiled/mobile/styles', options));
   app.use('/static/libs', express.static(process.cwd() + '/public/libs', options));
   app.use('/static/images', express.static(process.cwd() + '/public/images', options));
-  app.use('/*/templates', function (req, res, next) {
-    res.render(req.originalUrl.substr(1), function (err, html) {
-      if (err) {
-        next();
-      } else {
-        res.send(html);
-      }
-    });
-  });
 }
 
 module.exports = middlewareConfig;

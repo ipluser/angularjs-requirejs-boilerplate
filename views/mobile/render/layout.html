@@ -10,7 +10,7 @@
 
   <link rel="stylesheet" href="/static/libs/bootstrap/dist/css/bootstrap.min.css">
   <link href="/static/libs/github-markdown-css/github-markdown.css" rel="stylesheet">
-  <link rel="stylesheet" href="{= '/static/styles/desktop/style.css' | buildNumber =}"/>
+  <link rel="stylesheet" href="{= '/static/styles/mobile/style.css' | buildNumber =}"/>
 
   {% if styles %}
   {% for style in styles %}
@@ -43,6 +43,9 @@
       };
     }
 
+    {% if !isDevMode %}
+      GlobalConfig.requireScripts.push('mobile/templates');
+      {% endif %}
     {% if scripts %}
       {% for script in scripts %}
         GlobalConfig.requireScripts.push('{= script =}');
@@ -56,6 +59,7 @@
   <script src="/static/scripts/mobile/bootstrap.js"></script>
   {% else %}
   <script src="{= '/static/scripts/mobile/libs.min.js' | buildNumber =}"></script>
+  <script src="{= '/static/scripts/mobile/templates.min.js' | buildNumber =}"></script>
   <script src="{= '/static/scripts/mobile/apps.min.js' | buildNumber =}"></script>
   {% endif %}
 </body>

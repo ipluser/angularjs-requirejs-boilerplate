@@ -40,7 +40,7 @@ Development Environment using gulp-nodemon, [browser-sync](https://www.browsersy
 System configuration are stored in the <strong>locals.js</strong> file.
 
 ### Samples Page
-Start the server and input `URL/samples` with browsers.
+Start the server and input `http://localhost:port/samples` with browsers.
 
 ## Gulp
 Show task list with `gulp help`.
@@ -49,6 +49,11 @@ Show task list with `gulp help`.
 Test using karma and jasmine, run the test with `npm test` or `karma start`. Unit and coverage test report are stored in report directory.
 
 ## Changelog
+### 2.2.0
+- add build-templates task to optimize ngTemplates that registers AngularJS templates in the $templateCache
+- add error and listening event to server<br>
+17.01.2016
+
 ### 2.1.0
 - replace gulp-livereload with browser-sync
 - add gulp-help, gulp-size and others gulp components

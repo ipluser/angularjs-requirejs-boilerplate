@@ -22,11 +22,38 @@ if (locals.SSL.enableSSL) {
     cert: fs.readFileSync(locals.SSL.cert)
   };
 
-  require('https').createServer(options, app).listen(port, function () {
-    console.log('server listening on port(SSL enabled) ' + port);
-  });
+  server = require('https').createServer(options, app).listen(port);
 } else {
-  require('http').createServer(app).listen(port, function () {
-    console.log('server listening on port ' + port);
-  });
+  server = require('http').createServer(app).listen(port);
+}
+
+if (server !== null) {
+  server.on('error', onError);
+  server.on('listening', onListening);
+}
+
+function onError(error) {
+  if (error.syscall !== 'listen') {
+    loggers.errLogger.error('server internal error', error);
+    throw error;
+  }
+
+  switch (error.code) {
+    case 'EACCES':
+      console.error('Port ' + port + ' requires elevated privileges');
+      process.exit(1);
+      break;
+    case 'EADDRINUSE':
+      console.error('Port ' + port + ' is already in use');
+      process.exit(1);
+      break;
+    default:
+      loggers.errLogger.error('server internal error', error);
+      throw error;
+  }
+}
+
+function onListening() {
+  console.log('Server listening on port'
+      + (locals.SSL.enableSSL ? '(SSL enabled) ' : ' ') + port);
 }

@@ -25,7 +25,7 @@ gulp.task('desktop-build-styles-no-clean', function () {
       .pipe(minifycss().on('error', gutil.log))
       .pipe(gulpif(!envUtil.isProduction(), size({title: 'size of css in desktop, after minify css'})))
       .pipe(gulp.dest(paths.compiled))
-      .pipe(gulpif(envUtil.isDevelopment(), browserSync.stream()));
+      .pipe(gulpif(envUtil.isLiveReload(), browserSync.stream()));
 });
 
 gulp.task('desktop-clean-styles', function () {

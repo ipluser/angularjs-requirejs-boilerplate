@@ -10,4 +10,8 @@ env.isDevelopment = function () {
   return argv.development ? true : false;
 };
 
+env.isLiveReload = function () {
+  return (env.isDevelopment() && argv.development !== 'static') ? true : false;
+};
+
 module.exports = env;

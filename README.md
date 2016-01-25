@@ -49,6 +49,10 @@ Show task list with `gulp help`.
 Test using karma and jasmine, run the test with `npm test` or `karma start`. Unit and coverage test report are stored in report directory.
 
 ## Changelog
+### 2.2.1
+- fix task can not separate execution with development mode<br>
+25.01.2016
+
 ### 2.2.0
 - add build-templates task to optimize ngTemplates that registers AngularJS templates in the $templateCache
 - add error and listening event to server<br>

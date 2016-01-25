@@ -52,7 +52,7 @@ gulp.task('develop-watch-node', function () {
 });
 
 gulp.task('browsersync-reload', function () {
-  if (envUtil.isDevelopment()) {
+  if (envUtil.isLiveReload()) {
     browserSync.reload();
   }
 });

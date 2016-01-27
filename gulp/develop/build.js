@@ -13,9 +13,10 @@ var resources = {
   scripts: 'public/scripts/**/*.js',
   libs: 'public/libs/**/*.js',
   jshint: [
-    'public/scripts/**/*.js',
-    'node-app/**/*.js',
+    'gulp/**/*.js',
     'middleware/**/*.js',
+    'node-app/**/*.js',
+    'public/scripts/**/*.js',
     'test/**/*.js'
   ],
   views: 'views/**/*.html',
@@ -42,12 +43,16 @@ gulp.task('develop-watch-node', function () {
     },
     ext: 'js',
     watch: [
+      'gulp',
       'middleware',
       'node-app',
       'app.js'
     ]
   }).on('restart', function (files) {
     gutil.log('Node server restarted due to: ', files);
+    setTimeout(function() {
+      browserSync.reload();
+    }, 1000);
   });
 });
 

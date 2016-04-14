@@ -1,5 +1,7 @@
 ## angularjs-requirejs-boilerplate
-An complete angularjs requirejs boilerplate for node. There are angular and test samples in the project,
+A complete angularjs requirejs boilerplate for node.
+
+There are angular and test samples in the project,
 you can quick start your new project with angularjs-requirejs-boilerplate.
 
 ## Features

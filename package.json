@@ -1,6 +1,6 @@
 {
   "name": "angularjs-requirejs-boilerplate",
-  "description": "An complete angularjs requirejs boilerplate for node.",
+  "description": "A complete angularjs requirejs boilerplate for node.",
   "version": "2.3.0",
   "author": "Pluser <ipluser@163.com>",
   "keywords": [
